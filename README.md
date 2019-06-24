@@ -1,7 +1,20 @@
 # Occam's Razor - Rails 6 JSON API
 ![API](https://i.imgur.com/gxw5dxr.png)
 
-# Setup
+## Features
+
+* `fast_json` for ligtning fast JSON serialization
+* `jwt_sessions` for authentication
+* `redis` with `hiredis` driver for cache, JWT store and queues
+
+## Development
+
+* Rspec flavored TDD
+* Factories
+* Static Analyzers
+* asdf
+
+## Setup
 
 ```
 bundle
@@ -10,8 +23,14 @@ bin/rails db:setup
 bin/rails s
 ```
 
-# Change config
+## Change config
 
 ```
 bin/rails credentials:edit
+```
+
+## Generate token
+
+```
+bin/rails secret
 ```
