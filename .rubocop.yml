@@ -5,12 +5,14 @@ require:
 
 Documentation:
   Enabled: false
-
 Metrics/LineLength:
   Max: 100
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context']
 
 AllCops:
   DisplayStyleGuide: true
   DisplayCopNames: true
   Exclude:
     - 'bin/**'
+    - 'db/**'

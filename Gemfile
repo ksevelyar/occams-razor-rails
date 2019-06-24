@@ -10,13 +10,12 @@ gem 'rails', '~> 6.0.0.rc1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
+gem 'bcrypt'
+gem 'fast_jsonapi'
+gem 'hiredis'
+gem 'jwt_sessions'
 gem 'puma', '~> 3.11'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'redis'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -33,7 +32,10 @@ group :development, :test do
   gem 'pry-rails'
 
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'timecop'
 end
 
 group :development do
