@@ -10,7 +10,7 @@
 ## Development
 
 * Rspec flavored TDD
-* Factories
+* Factories bundled with Faker
 * Static Analyzers
 * [asdf](https://github.com/asdf-vm/asdf)
 
