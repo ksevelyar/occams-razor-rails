@@ -1,9 +1,8 @@
 # Occam's Razor - Rails 6 JSON API
-![API](https://i.imgur.com/gxw5dxr.png)
 
 ## Features
 
-* `fast_json` for ligtning fast JSON serialization
+* [fast_jsonapi](https://github.com/Netflix/fast_jsonapi) for ligtning fast JSON serialization (bless you, :tv: Netflix)
 * `jwt_sessions` for authentication
 * `redis` with `hiredis` driver for cache, JWT store and queues
 
