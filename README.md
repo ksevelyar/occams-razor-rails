@@ -11,7 +11,7 @@
 
 * Rspec flavored TDD
 * [shoulda-matchers](http://matchers.shoulda.io/)
-* Factories bundled with Faker
+* Factories bundled with [faker](https://github.com/stympy/faker)
 * Static Analyzers: `rubocop-performance`, `rubocop-rails`, `rubocop-rspec`
 * [asdf](https://github.com/asdf-vm/asdf)
 
