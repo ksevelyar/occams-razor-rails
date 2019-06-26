@@ -5,6 +5,7 @@
 * [fast_jsonapi](https://github.com/Netflix/fast_jsonapi) for ligtning fast JSON serialization (bless you, :tv: Netflix)
 * `jwt_sessions` for authentication
 * `redis` with `hiredis` driver for cache, JWT store and queues
+* PostgreSQL
 
 ## Development
 
