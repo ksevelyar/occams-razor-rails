@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
-  before_save { email.downcase! }
+  before_save { email&.downcase! }
 
   has_secure_password
 end
