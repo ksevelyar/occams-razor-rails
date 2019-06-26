@@ -10,6 +10,7 @@
 ## Development
 
 * Rspec flavored TDD
+* [shoulda-matchers](http://matchers.shoulda.io/)
 * Factories bundled with Faker
 * Static Analyzers
 * [asdf](https://github.com/asdf-vm/asdf)
