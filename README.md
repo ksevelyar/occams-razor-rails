@@ -32,6 +32,6 @@ bin/rails credentials:edit
 
 ## Generate token
 
-```
-bin/rails secret
+```fish
+env EDITOR=nvim bin/rails credentials:edit
 ```
