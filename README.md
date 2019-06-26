@@ -25,12 +25,12 @@ bin/rails s
 
 ## Change config
 
-```
-bin/rails credentials:edit
+```fish
+env EDITOR=nvim bin/rails credentials:edit
 ```
 
 ## Generate token
 
-```fish
-env EDITOR=nvim bin/rails credentials:edit
+```
+bin/rails secret
 ```
