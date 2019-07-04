@@ -3,7 +3,7 @@
 ## Features
 
 * [fast_jsonapi](https://github.com/Netflix/fast_jsonapi) for ligtning fast JSON serialization (bless you, :tv: Netflix)
-* `jwt_sessions` for authentication
+* [XSS/CSRF safe JWT auth](https://medium.com/p/e4a9ac5cd9a3/responses/show) with `jwt_sessions`
 * `redis` with `hiredis` driver for cache, JWT store and queues
 * PostgreSQL
 
