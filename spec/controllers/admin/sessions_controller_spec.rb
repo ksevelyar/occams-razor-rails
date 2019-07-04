@@ -16,12 +16,13 @@ shared_examples 'jwt_session' do
   end
 end
 
-describe SessionsController, type: :controller do
-  describe 'POST #create' do
-    let(:user_params) { attributes_for(:user) }
-    let(:password) { user_params[:password] }
-    let!(:user) { create :user, user_params }
+describe Admin::SessionsController, type: :controller do
+  let(:user_params) { attributes_for(:user) }
+  let(:password) { user_params[:password] }
+  let!(:user) { create :user, user_params }
+  let(:jwt_service) { JWTService.new(user_id: user.id) }
 
+  describe 'POST #create' do
     context 'when password is correct' do
       before do
         post :create, params: user_params
@@ -37,12 +38,9 @@ describe SessionsController, type: :controller do
   end
 
   describe 'PATCH #update' do
-    let(:user) { create :user }
-    let(:expired_jwt_service) { JWTService.new(user_id: user.id) }
-
     before do
-      request.cookies[JWTSessions.access_cookie] = expired_jwt_service.access_token
-      request.headers[JWTSessions.csrf_header] = expired_jwt_service.csrf
+      request.cookies[JWTSessions.access_cookie] = jwt_service.access_token
+      request.headers[JWTSessions.csrf_header] = jwt_service.csrf
     end
 
     context 'when expired' do
@@ -57,6 +55,28 @@ describe SessionsController, type: :controller do
       it 'raises unathorized' do
         post :update
         expect(response).to have_http_status(:unauthorized)
+      end
+    end
+  end
+
+  describe 'DELETE #destroy' do
+    context 'when unathorized' do
+      it 'raises unathorized' do
+        delete :destroy
+        expect(response).to have_http_status(:unauthorized)
+      end
+    end
+
+    context 'when authorized' do
+      before do
+        request.headers[JWTSessions.csrf_header] = jwt_service.csrf
+        request.cookies[JWTSessions.access_cookie] = jwt_service.access_token
+
+        delete :destroy
+      end
+
+      it 'destroys the session' do
+        expect(response).to have_http_status(:ok)
       end
     end
   end
