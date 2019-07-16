@@ -6,6 +6,7 @@
 * [XSS/CSRF safe JWT auth](https://medium.com/@jcbaey/authentication-in-spa-reactjs-and-vuejs-the-right-way-e4a9ac5cd9a3) with `jwt_sessions`
 * `redis` with `hiredis` driver for cache, JWT store and queues
 * PostgreSQL
+* Lightweight Docker images
 
 ## Development
 
@@ -15,13 +16,19 @@
 * Static Analyzers: `rubocop-performance`, `rubocop-rails`, `rubocop-rspec`
 * [asdf](https://github.com/asdf-vm/asdf)
 
-## Setup
+## Setup with ASDF
 
 ```
 bundle
 bundle exec spring binstub --all
 bin/rails db:setup
 bin/rails s
+```
+
+## Setup with Docker Compose
+
+```
+docker-compose up
 ```
 
 ## Change config
