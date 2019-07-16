@@ -1,0 +1,42 @@
+version: '3.5'
+
+services:
+  db:
+    image: postgres:11-alpine
+    environment:
+      - POSTGRES_USER=occams-razor
+      - POSTGRES_PASSWORD=occams-razor
+      - POSTGRES_DB=occams_razor_development
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:alpine
+
+  api: &app_base
+    image: rails_api_dev
+    build:
+      context: .
+      args:
+        - ADDITIONAL_PACKAGES=build-base git fish
+        - RAILS_ENV=development
+    environment:
+      - DB_HOST=db
+      - DB_PASSWORD=occams-razor
+      - DB_USER=occams-razor
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY_BASE=da0b9987f81a153a0959abdf2fc772227e4043eee9d6cab881769cf0797cbd78e011e9dd8cb5c4740e362b16364ec61358de83eb8c5c4b0f43f35100e3f601e8
+    ports:
+      - 3000
+    volumes:
+      - .:/rails
+    depends_on:
+      - db
+      - redis
+
+volumes:
+  db-data:
+
+networks:
+  default:
+    name: SentientHyperOptimizedDataAccessNetwork

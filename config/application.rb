@@ -36,6 +36,8 @@ module RailsApiBoilerplate
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    config.hosts << 'api'
+
     config.generators do |g|
       g.routing_specs false
       g.request_specs false

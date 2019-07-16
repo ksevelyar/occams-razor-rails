@@ -1,0 +1,11 @@
+.env*
+.git
+.gitignore
+.travis.yml
+Procfile*
+docker-compose.*
+Dockerfile
+coverage/*
+log/*
+storage/*
+tmp/*
